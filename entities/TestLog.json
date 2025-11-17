@@ -1,0 +1,30 @@
+{
+  "name": "TestLog",
+  "description": "Logs for tracking test results and outcomes",
+  "properties": {
+    "test_category": {
+      "type": "string",
+      "description": "Category of test (UI, Database, Integration, etc.)"
+    },
+    "test_name": {
+      "type": "string",
+      "description": "Name of the specific test"
+    },
+    "status": {
+      "type": "string",
+      "description": "Test status: passed, failed, pending"
+    },
+    "result_data": {
+      "type": "string",
+      "description": "JSON string of test result data"
+    },
+    "error_message": {
+      "type": "string",
+      "description": "Error message if test failed"
+    },
+    "execution_time": {
+      "type": "number",
+      "description": "Test execution time in milliseconds"
+    }
+  }
+}
