@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Box, Database, Plug, FileText, BookTemplate, TestTube } from "lucide-react";
+import { Home, Box, Database, Plug, FileText, BookTemplate, TestTube, Bug } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -9,7 +9,8 @@ const navItems = [
   { path: "/integrations", label: "Integrations", icon: Plug },
   { path: "/forms", label: "Forms", icon: FileText },
   { path: "/templates", label: "Templates", icon: BookTemplate },
-  { path: "/mode-test", label: "Mode Test", icon: TestTube }
+  { path: "/mode-test", label: "Mode Test", icon: TestTube },
+  { path: "/error-test", label: "Error Test", icon: Bug }
 ];
 
 export default function Navigation() {
