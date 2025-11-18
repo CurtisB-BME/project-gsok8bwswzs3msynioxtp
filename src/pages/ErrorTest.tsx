@@ -10,7 +10,6 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertTriangle, Bug, Code, Database, Plug, RefreshCw, ShieldAlert, Info } from "lucide-react";
 import { TestLog } from "@/entities";
 import { invokeLLM } from "@/integrations/core";
-import { toast } from "sonner";
 
 export default function ErrorTest() {
     const [errorCount, setErrorCount] = useState(0);
@@ -46,31 +45,19 @@ export default function ErrorTest() {
 
     const triggerDatabaseError = async () => {
         setErrorCount(prev => prev + 1);
-        try {
-            await TestLog.query()
-                // @ts-ignore
-                .where("invalid_field", "nonexistent_operator", "value")
-                .exec();
-        } catch (error: any) {
-            console.error("Database error triggered:", error);
-            toast.error("Database error triggered: " + error.message);
-            throw error;
-        }
+        await TestLog.query()
+            // @ts-ignore
+            .where("invalid_field", "nonexistent_operator", "value")
+            .exec();
     };
 
     const triggerIntegrationError = async () => {
         setErrorCount(prev => prev + 1);
-        try {
-            // @ts-ignore
-            await invokeLLM({
-                prompt: "test",
-                response_json_schema: { invalid: "schema", type: "not_a_valid_type" }
-            });
-        } catch (error: any) {
-            console.error("Integration error triggered:", error);
-            toast.error("Integration error triggered: " + error.message);
-            throw error;
-        }
+        // @ts-ignore
+        await invokeLLM({
+            prompt: "test",
+            response_json_schema: { invalid: "schema", type: "not_a_valid_type" }
+        });
     };
 
     const triggerArrayError = () => {
