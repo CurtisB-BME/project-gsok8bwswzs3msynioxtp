@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { AlertTriangle, Bug, Code, Database, Plug, RefreshCw, ShieldAlert } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertTriangle, Bug, Code, Database, Plug, RefreshCw, ShieldAlert, Info } from "lucide-react";
 import { TestLog } from "@/entities";
 import { invokeLLM } from "@/integrations/core";
 import { toast } from "sonner";
@@ -115,6 +116,21 @@ export default function ErrorTest() {
                         Intentionally trigger errors to test if the "try to fix" button works properly
                     </p>
                 </div>
+
+                {/* WARNING BANNER */}
+                <Alert className="mb-8 border-warning bg-warning/10">
+                    <Info className="h-5 w-5 text-warning" />
+                    <AlertTitle className="text-warning font-bold text-lg">⚠️ ERRORS ON THIS PAGE ARE INTENTIONAL</AlertTitle>
+                    <AlertDescription className="text-warning/90 mt-2">
+                        <div className="space-y-2">
+                            <p className="font-semibold">This is a testing page designed to trigger errors on purpose.</p>
+                            <p>When you click "Trigger Error" buttons below, the app will crash intentionally. This is <strong>expected behavior</strong> to test error handling and recovery mechanisms.</p>
+                            <p className="text-sm mt-3 p-3 bg-background/50 rounded border border-warning/30">
+                                <strong>What you're testing:</strong> After triggering an error, look for any "try to fix" or error recovery options that appear. Use the "Reset Page" button below to clear errors between tests.
+                            </p>
+                        </div>
+                    </AlertDescription>
+                </Alert>
 
                 <Card className="border-border/50 bg-card/50 backdrop-blur mb-8">
                     <CardHeader>
