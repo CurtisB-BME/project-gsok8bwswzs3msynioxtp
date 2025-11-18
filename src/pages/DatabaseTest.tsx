@@ -97,7 +97,8 @@ export default function DatabaseTest() {
       return records;
     });
     if (result) {
-      setTestData(prev => [...result, ...prev]);
+      const records = Array.isArray(result) ? result : [result];
+      setTestData(prev => [...records, ...prev]);
     }
   };
 
