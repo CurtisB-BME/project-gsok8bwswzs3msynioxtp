@@ -12,6 +12,8 @@ import FormsTest from "./pages/FormsTest";
 import TemplatesLibrary from "./pages/TemplatesLibrary";
 import ModeTest from "./pages/ModeTest";
 import ErrorTest from "./pages/ErrorTest";
+import TechSupport from "./pages/TechSupport";
+import TechSupportHistory from "./pages/TechSupportHistory";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +34,8 @@ const App = () => (
           <Route path="/templates" element={<TemplatesLibrary />} />
           <Route path="/mode-test" element={<ModeTest />} />
           <Route path="/error-test" element={<ErrorTest />} />
+          <Route path="/tech-support" element={<TechSupport />} />
+          <Route path="/tech-support/history" element={<TechSupportHistory />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

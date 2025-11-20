@@ -1,9 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Box, Database, Plug, FileText, BookTemplate, TestTube, Bug } from "lucide-react";
+import { Home, Box, Database, Plug, FileText, BookTemplate, TestTube, Bug, HeadphonesIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { path: "/", label: "Dashboard", icon: Home },
+  { path: "/tech-support", label: "Tech Support", icon: HeadphonesIcon },
   { path: "/ui-components", label: "UI Components", icon: Box },
   { path: "/database", label: "Database", icon: Database },
   { path: "/integrations", label: "Integrations", icon: Plug },
@@ -27,17 +28,18 @@ export default function Navigation() {
             <span className="font-bold text-xl gradient-text">Buildy Test Suite</span>
           </div>
           
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 overflow-x-auto">
             {navItems.map((item) => {
               const Icon = item.icon;
-              const isActive = location.pathname === item.path;
+              const isActive = location.pathname === item.path || 
+                (item.path === "/tech-support" && location.pathname.startsWith("/tech-support"));
               
               return (
                 <Link
                   key={item.path}
                   to={item.path}
                   className={cn(
-                    "flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200",
+                    "flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 whitespace-nowrap",
                     isActive 
                       ? "bg-primary text-primary-foreground" 
                       : "hover:bg-accent/50 text-muted-foreground hover:text-foreground"

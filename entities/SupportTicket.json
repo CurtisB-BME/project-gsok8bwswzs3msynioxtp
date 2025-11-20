@@ -1,0 +1,50 @@
+{
+  "name": "SupportTicket",
+  "description": "Technical support tickets for debugging Buildy apps",
+  "properties": {
+    "app_name": {
+      "type": "string",
+      "description": "Name of the Buildy app with the issue"
+    },
+    "page_name": {
+      "type": "string",
+      "description": "Specific page or feature where the issue occurs"
+    },
+    "problem_description": {
+      "type": "string",
+      "description": "Detailed description of the problem"
+    },
+    "expected_behavior": {
+      "type": "string",
+      "description": "What should happen vs what is happening"
+    },
+    "code_snippet": {
+      "type": "string",
+      "description": "Code snippet, error message, or stack trace"
+    },
+    "image_urls": {
+      "type": "string",
+      "description": "Comma-separated URLs of uploaded screenshots"
+    },
+    "error_type": {
+      "type": "string",
+      "description": "Type of error: Runtime Error, Build Error, UI Issue, Database Error, Integration Error, Other"
+    },
+    "status": {
+      "type": "string",
+      "description": "Ticket status: analyzing, solved, needs_more_info"
+    },
+    "analysis_result": {
+      "type": "string",
+      "description": "AI-generated analysis of the problem"
+    },
+    "solutions": {
+      "type": "string",
+      "description": "JSON array of suggested solutions"
+    },
+    "priority": {
+      "type": "string",
+      "description": "Priority level: low, medium, high, critical"
+    }
+  }
+}
