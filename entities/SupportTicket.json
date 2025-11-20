@@ -22,6 +22,10 @@
       "type": "string",
       "description": "Code snippet, error message, or stack trace"
     },
+    "chat_history": {
+      "type": "string",
+      "description": "Full chat conversation history from the Buildy app showing what was built and modified"
+    },
     "image_urls": {
       "type": "string",
       "description": "Comma-separated URLs of uploaded screenshots"

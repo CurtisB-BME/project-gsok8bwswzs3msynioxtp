@@ -26,6 +26,14 @@ export default function TechSupport() {
       setCurrentTicketId(ticket.id);
 
       // Build comprehensive prompt for AI analysis
+      const chatHistorySection = ticketData.chat_history 
+        ? `\n**Chat History (Conversation between user and Buildy):**\n${ticketData.chat_history}\n\n**IMPORTANT:** Use this chat history to understand:
+- What the user originally asked Buildy to build
+- What code and features were generated
+- Any modifications or corrections made along the way
+- The sequence of changes that led to the current state\n`
+        : '\n**Chat History:** Not provided\n';
+
       const prompt = `You are an expert debugging assistant for Buildy apps (React, Vite, TypeScript, Tailwind CSS, shadcn/ui, TanStack Query).
 
 **App Context:**
@@ -33,7 +41,7 @@ export default function TechSupport() {
 - Page/Feature: ${ticketData.page_name || "Not specified"}
 - Error Type: ${ticketData.error_type}
 - Priority: ${ticketData.priority}
-
+${chatHistorySection}
 **Problem Description:**
 ${ticketData.problem_description}
 
@@ -44,14 +52,14 @@ ${ticketData.expected_behavior || "Not specified"}
 ${ticketData.code_snippet || "No code provided"}
 
 **Task:**
-1. Analyze this issue and identify the most likely root causes
+1. Analyze this issue and identify the most likely root causes${ticketData.chat_history ? ' (use the chat history to understand the development context)' : ''}
 2. Provide 3-4 ranked solutions (high/medium/low likelihood)
 3. For each solution, include specific code examples when applicable
 4. Consider common Buildy patterns: routing, entity usage, integrations, React hooks
-
+${ticketData.chat_history ? '5. Reference specific parts of the chat history that may have introduced the issue\n' : ''}
 **Return format:**
 {
-  "analysis": "Detailed analysis of the problem and likely causes (2-3 paragraphs)",
+  "analysis": "Detailed analysis of the problem and likely causes (2-3 paragraphs)${ticketData.chat_history ? '. If chat history is provided, reference specific requests or changes that may have caused the issue.' : ''}",
   "solutions": [
     {
       "title": "Short solution title",

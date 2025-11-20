@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { AlertCircle, Upload, Code2, Image as ImageIcon, Loader2 } from "lucide-react";
+import { AlertCircle, Upload, Code2, Image as ImageIcon, Loader2, MessageSquare } from "lucide-react";
 import { uploadFile } from "@/integrations/core";
 import { toast } from "sonner";
 
@@ -20,6 +20,7 @@ export default function SupportRequestForm({ onSubmit, isAnalyzing }: SupportReq
   const [problemDescription, setProblemDescription] = useState("");
   const [expectedBehavior, setExpectedBehavior] = useState("");
   const [codeSnippet, setCodeSnippet] = useState("");
+  const [chatHistory, setChatHistory] = useState("");
   const [errorType, setErrorType] = useState("");
   const [priority, setPriority] = useState("medium");
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
@@ -61,6 +62,7 @@ export default function SupportRequestForm({ onSubmit, isAnalyzing }: SupportReq
       problem_description: problemDescription,
       expected_behavior: expectedBehavior,
       code_snippet: codeSnippet,
+      chat_history: chatHistory,
       image_urls: uploadedImages.join(","),
       error_type: errorType,
       priority,
@@ -158,6 +160,25 @@ export default function SupportRequestForm({ onSubmit, isAnalyzing }: SupportReq
               onChange={(e) => setExpectedBehavior(e.target.value)}
               rows={2}
             />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="chat-history" className="flex items-center gap-2">
+              <MessageSquare className="h-4 w-4" />
+              Chat History (Highly Recommended)
+            </Label>
+            <Textarea
+              id="chat-history"
+              placeholder="Paste your full Buildy chat conversation here... This helps us understand what you asked for and what was built."
+              value={chatHistory}
+              onChange={(e) => setChatHistory(e.target.value)}
+              rows={8}
+              className="text-sm"
+            />
+            <p className="text-xs text-muted-foreground">
+              💡 <strong>Why this helps:</strong> The chat history shows what you asked Buildy to build, what changes were made, and when. 
+              This context is incredibly valuable for diagnosing issues quickly and accurately.
+            </p>
           </div>
 
           <div className="space-y-2">

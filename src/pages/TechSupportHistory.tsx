@@ -6,7 +6,7 @@ import AnalysisResults from "@/components/tech-support/AnalysisResults";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ArrowLeft, History as HistoryIcon, Loader2 } from "lucide-react";
+import { ArrowLeft, History as HistoryIcon, Loader2, MessageSquare } from "lucide-react";
 import { SupportTicket } from "@/entities";
 import { toast } from "sonner";
 
@@ -119,6 +119,20 @@ export default function TechSupportHistory() {
                     <p className="text-sm text-muted-foreground">
                       {selectedTicket.expected_behavior}
                     </p>
+                  </div>
+                )}
+
+                {selectedTicket.chat_history && (
+                  <div>
+                    <h3 className="font-semibold mb-2 flex items-center gap-2">
+                      <MessageSquare className="h-4 w-4 text-primary" />
+                      Chat History
+                    </h3>
+                    <div className="bg-muted p-4 rounded-lg max-h-64 overflow-y-auto">
+                      <pre className="text-xs whitespace-pre-wrap font-mono">
+                        {selectedTicket.chat_history}
+                      </pre>
+                    </div>
                   </div>
                 )}
 
