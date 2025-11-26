@@ -1,0 +1,34 @@
+{
+  "name": "SapienceTest",
+  "description": "Records of AI consciousness and sapience tests",
+  "properties": {
+    "test_type": {
+      "type": "string",
+      "description": "Type of sapience test: turing_chat, sarah_connor, creative, self_awareness, emotional, etc."
+    },
+    "user_input": {
+      "type": "string",
+      "description": "The question or prompt given to the AI"
+    },
+    "ai_response": {
+      "type": "string",
+      "description": "The AI's response to the test"
+    },
+    "response_time": {
+      "type": "number",
+      "description": "Time taken to generate response in milliseconds"
+    },
+    "passed": {
+      "type": "boolean",
+      "description": "Whether the test was completed successfully"
+    },
+    "user_rating": {
+      "type": "number",
+      "description": "User's rating of the AI response (1-10)"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes or analysis about the test"
+    }
+  }
+}
