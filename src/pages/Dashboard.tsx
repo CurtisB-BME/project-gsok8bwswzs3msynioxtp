@@ -2,11 +2,18 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Box, Database, Plug, FileText, BookTemplate, TestTube, Activity, CheckCircle2 } from "lucide-react";
+import { Box, Database, Plug, FileText, BookTemplate, TestTube, Activity, CheckCircle2, Brain } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { TestLog } from "@/entities";
 
 const testCategories = [
+  {
+    title: "AI Sapience Tests",
+    description: "Test AI consciousness and emotional intelligence",
+    icon: Brain,
+    path: "/sapience-test",
+    color: "from-purple-500 to-pink-500"
+  },
   {
     title: "UI Components",
     description: "Test all shadcn/ui components with various states",

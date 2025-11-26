@@ -14,6 +14,7 @@ import ModeTest from "./pages/ModeTest";
 import ErrorTest from "./pages/ErrorTest";
 import TechSupport from "./pages/TechSupport";
 import TechSupportHistory from "./pages/TechSupportHistory";
+import SapienceTest from "./pages/SapienceTest";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/error-test" element={<ErrorTest />} />
           <Route path="/tech-support" element={<TechSupport />} />
           <Route path="/tech-support/history" element={<TechSupportHistory />} />
+          <Route path="/sapience-test" element={<SapienceTest />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,10 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Box, Database, Plug, FileText, BookTemplate, TestTube, Bug, HeadphonesIcon } from "lucide-react";
+import { Home, Box, Database, Plug, FileText, BookTemplate, TestTube, Bug, HeadphonesIcon, Brain } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { path: "/", label: "Dashboard", icon: Home },
   { path: "/tech-support", label: "Tech Support", icon: HeadphonesIcon },
+  { path: "/sapience-test", label: "AI Sapience", icon: Brain },
   { path: "/ui-components", label: "UI Components", icon: Box },
   { path: "/database", label: "Database", icon: Database },
   { path: "/integrations", label: "Integrations", icon: Plug },
