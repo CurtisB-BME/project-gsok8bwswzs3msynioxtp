@@ -53,7 +53,7 @@ const testTypes = [
   }
 ];
 
-export default function SapienceTest() {
+export default function SapienceTestPage() {
   const [selectedTest, setSelectedTest] = useState<string | null>(null);
   const [customPrompt, setCustomPrompt] = useState("");
   const [currentResponse, setCurrentResponse] = useState<string>("");
