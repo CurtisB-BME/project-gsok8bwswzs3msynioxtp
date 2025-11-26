@@ -16,13 +16,13 @@ export default function TestSection({ title, description, children, icon }: Test
           {icon && <div className="text-primary">{icon}</div>}
           <div>
             <CardTitle className="text-xl">{title}</CardTitle>
-            <CardDescription className="text-muted-foreground">{description}</CardDescription>
+            <CardDescription className="text-muted-foreground text-base">{description}</CardDescription>
           </div>
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
         {children}
       </CardContent>
-    </Card>
-  );
+    </Card>);
+
 }
